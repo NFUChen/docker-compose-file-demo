@@ -14,13 +14,15 @@ services:  # Define the services/containers we want to create
     volumes:
       - postgres_data:/var/lib/postgresql/data  # Create a Docker volume for PostgreSQL data
 
-
   redis:  # The name of the second service/container
     image: redis:latest  # The Docker image to use (latest version of Redis)
     restart: "always"
-    container_name: redis
     ports:
-      - "6379:6379"  # Map host port 6379 to container port 6379
+      - "6379-6381:6379"  # Map host port rangin from 6379 to 6381 to container port 6379
+    deploy:
+      replicas: 3
+    environment:
+      DEMO: demo
 
 volumes:
   postgres_data:  # Define the Docker volume for PostgreSQL data
