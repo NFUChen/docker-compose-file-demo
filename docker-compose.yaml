@@ -3,7 +3,7 @@ services:  # Define the services/containers we want to create
 
   postgres:  # The name of the first service/container
     image: postgres:latest  # The Docker image to use (latest version of PostgreSQL)
-    container_name: presgres
+    container_name: postsgres
     environment:
       POSTGRES_USER: sram-admin  # Set the PostgreSQL username
       POSTGRES_PASSWORD: sramsram-admin  # Set the PostgreSQL password
