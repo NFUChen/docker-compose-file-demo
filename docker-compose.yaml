@@ -1,0 +1,27 @@
+version: '3'  # The version of the Docker Compose file format
+services:  # Define the services/containers we want to create
+
+  postgres:  # The name of the first service/container
+    image: postgres:latest  # The Docker image to use (latest version of PostgreSQL)
+    container_name: presgres
+    environment:
+      POSTGRES_USER: sram-admin  # Set the PostgreSQL username
+      POSTGRES_PASSWORD: sramsram-admin  # Set the PostgreSQL password
+      POSTGRES_DB: db  # Set the name of the PostgreSQL database
+    ports:
+      - "5432:5432"  # Map host port 5432 to container port 5432 (i.e., host:container)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Create a Docker volume for PostgreSQL data
+
+
+  redis:  # The name of the second service/container
+    image: redis:latest  # The Docker image to use (latest version of Redis)
+    container_name: redis
+    ports:
+      - "6379:6379"  # Map host port 6379 to container port 6379
+
+volumes:
+  postgres_data:  # Define the Docker volume for PostgreSQL data
+
+
+
